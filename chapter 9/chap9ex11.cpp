@@ -1,0 +1,60 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class pairStack
+{
+protected:
+    enum {maxx = 80};
+    int stack[maxx],top;
+public:
+    pairStack():top(-1)
+    {
+
+    }
+    void push(int a)
+    {
+        stack[++top]=a;
+    }
+    void pop(int a)
+    {
+        cout<< stack[top--]<<")"<<" ";
+    }
+
+};
+class Stack2:public pairStack
+{
+private:
+
+public:
+    Stack2():pairStack()
+    {
+    }
+    void push(int b,int a)
+    {
+        stack[++top]=b;
+        pairStack::push(a);
+    }
+    void pop(int b,int a)
+    {
+        cout<<"("<<stack[top--]<<",";
+        pairStack::pop(b);
+
+    }
+
+};
+
+int main()
+{
+    Stack2 p1,p2;
+    cout<< "\n push on stack :(2,3) ,(3,4) ,(4,5) \n";
+    p1.push(2,3);
+    p1.push(3,4);
+    p1.push(4,5);
+    cout<< "\n pop out (4,5) ,(3,4) ,(2,3):";
+    p1.pop(4,5);
+    p1.pop(3,4);
+    p1.pop(2,3);
+    cout<<endl;
+    return 0;
+}

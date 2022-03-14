@@ -1,0 +1,152 @@
+verview of the problem
+
+You are to develop software for a simple online shopping situation. The entities in this scenario include the web shop, customers, products, orders and invoices. The shop has a list of products available. A customer logs in, selects products and adds them to his/her order. When the shopping is complete an invoice with unique invoice number is generated for the order. There are 10 products in this simple example and they should be stored in an array. Products can be added and deleted from an order. Only one customer at a time need be considered.
+
+Solutions at this level should be mainly OO with 3 or 4 classes. Procedural code should be minimal. Products should be read from the file. Advanced features such as constructors and/or default parameters are expected. Code style must be good in all respects.
+
+Responsibilities of objects
+
+The Order object is responsible for building a list of products ordered via adding from the list of all products or deleting from the list of ordered products. Thus there are two lists in this program viz. the complete list of products and the list of ordered ones. Some sort of search facility would normally be part of the Order class. The Product class should be able to provide details such as name and price to other classes such as the Order class. If a file is used then it should be able to read a record from the file and load the data. If used the Web_shop class should load the complete list of products from the file, allow customer login, provide the on-screen menus and generate invoices. The Customer class is relatively simple just being able to provide details such as name to other classes and to accept/create details from the login process.
+
+Operation of your program
+
+Your program should begin by offering a login prompt on screen. Once a username and password is accepted a customer can be created. At this point a menu of products should appear on screen. These products should either have been loaded from the file or have been hard-coded in the program. The user uses the menu to select products which are added to the order. A facility to quit this menu should be provided. The order thus far should then be displayed on screen. At this stage there should now be a facility to delete items in the order. This can be done on the basis of the name of the product. Once this phase is quit an invoice should be generated and displayed on screen. The program can then finish or the user logout.
+
+
+products.dat
+
+Chainsaw CS001 59.95
+Bowie_knife BK001 39.95
+Samurai_sword SS001 159.95
+Axe AX001 29.95
+Colt_45 CO001 299.95
+Magnum_357 MG001 359.95
+Shotgun SG001 158.00
+UZZI UZ001 550.95
+Machete MT001 49.95
+Sniper_rifle SR001 290.95
+Last edited on Apr 6, 2012 at 3:21pm
+  Apr 6, 2012 at 2:14pm
+closed account (S6k9GNh0)
+? What's there to discuss?
+  Apr 6, 2012 at 3:35pm
+student2 (8)
+sorry this is what I done so far. I appreciat ur guys ideas n help to get this program work.
+
+
+
+
+#include<iostream>
+#include<fstream>
+#include <string>
+
+using namespace std;
+
+
+class Order
+{
+private:
+string customer;
+string country ;
+string productList[];
+int numProducts ;
+
+public: 
+void createOrder(Customer);
+void add(product);
+void search(string);
+void delete(string);
+void display();
+};
+
+
+class Customer
+{
+private:
+string name; 
+string address;
+
+public:
+void createCust(string, string);
+void customer(string, string);
+void getName();
+};
+
+class Product
+{
+private:
+string name;
+string model;
+float price;
+
+public:
+void readRecord(ifstream&);
+void createProduct(string, string, float);
+void getPrice();
+void displayDetails();
+void getName();
+
+};
+
+void displayDetails(product p) 
+{
+cout<<"Name:"<<p.name<<endl;
+cout<<p.model<<endl;
+cout<<"Price:"<<p.price<<endl;
+
+}
+
+
+
+class Web_shop
+{
+private:
+string customer;
+string products[];
+int invoiceNumber;
+string order;
+
+public:
+void Web_shop();
+void readProducts();
+void login();
+void runShop();
+void generateInvoice();
+};
+
+
+
+
+int main()
+{
+int count=0;
+product prods[10];
+ifstream infile;
+
+infile.open("products.dat");
+
+if(infile.fail()) cout<<"File not found";
+else {
+// File loopfile.peek()!=EOF) {
+infile> 0.5 mark
+while(in>prods[count].name>>prods[count].model>>prods[count].price;
+count++;
+}
+}
+infile.close();
+for(int i=0;i<count;i++)
+displayProductDetails(prods[i]); 
+
+
+
+system("pause");
+return 0;
+}
+  Apr 11, 2012 at 10:26am
+student2 (8)
+i just got no idea how to start this program coding
+can some one plz guild me thorough it plz
+  Apr 11, 2012 at 1:37pm
+wasd2 (5)
+Firstly, put [ code ] [ /code ] tags around the code.
+Topic archived. No new replies allowed.
